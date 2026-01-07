@@ -1,1 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap">
+    <title>Dolce&Gabbana® Beauty</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Inter", Arial, sans-serif;
+            color: #000;
+            background: #fff;
+        }
 
+        /* Header Wrapper */
+        .header-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: transparent;
+        }
+
+        .header-wrapper:hover {
+            background: #fff;
+        }
+
+        .header-wrapper.scrolled {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            background: transparent;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            border-bottom: none;
+        }
+
+        .header-wrapper.scrolled .top-nav {
+            padding: 10px 40px;
+        }
+
+        .top-nav-left, .top-nav-right {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-nav a svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+        }
+
+        .header-wrapper:hover .top-nav a,
+        .header-wrapper.scrolled .top-nav a {
+            color: #000;
+        }
+
+        .top-nav a.active {
+            text-decoration: underline;
+        }
+
+        /* Main Header */
+        .main-header {
+            background: transparent;
+            text-align: center;
+            padding: 5px 20px 20px;
+        }
+
+        .header-wrapper.scrolled .main-header {
+            padding: 10px 20px;
+        }
+
+        /* Logo Container */
+        .logo {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo a {
+            display: block;
+            line-height: 0;
+        }
+
+        .logo-default {
+            height: 82px;
+            width: auto;
+            display: block;
+        }
+
+        .logo-hover {
+            height: 82px;
+            width: auto;
+            display: none;
+        }
+
+        .header-wrapper:hover .logo-default {
+            display: none;
+        }
+
+        .header-wrapper:hover .logo-hover {
+            display: block;
+        }
+
+        .header-wrapper.scrolled .logo {
+            margin-bottom: 0;
+        }
+
+        .header-wrapper.scrolled .logo-default,
+        .header-wrapper.scrolled .logo-hover {
+            display: none;
+        }
+
+        /* Scrolled Logo */
+        .dg-logo-link {
+            display: none;
+        }
+
+        .header-wrapper.scrolled .dg-logo-link {
+            display: block;
+        }
+
+        .dg-logo-img {
+            height: 40px;
+            width: auto;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Sub Menu */
+        .sub-menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        .header-wrapper.scrolled .sub-menu {
+            margin-top: 10px;
+            font-size: 12px;
+        }
+
+        .sub-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .header-wrapper:hover .sub-menu a,
+        .header-wrapper.scrolled .sub-menu a {
+            color: #000;
+        }
+
+        /* BODY SECTIONS - BEAUTY PAGE */
+        
+        /* Hero Video Section */
+        .hero-video {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            margin-top: 0;
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #8B0000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-video-text {
+            padding: 60px 5%;
+            background: #fff;
+            text-align: left;
+        }
+
+        .hero-video-text h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #000;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-video-text p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-weight: 300;
+            color: #555;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-discover {
+            display: inline-block;
+            padding: 12px 35px;
+            background: transparent;
+            color: #000;
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border: 1px solid #000;
+            transition: all 0.3s ease;
+        }
+
+        .btn-discover:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Holiday Selection Section */
+        .holiday-selection-section {
+            padding: 80px 0;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: left;
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            padding-left: 60px;
+        }
+
+        /* Horizontal Scrolling Carousel */
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 0 60px;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-card {
+            min-width: 300px;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .carousel-card:hover {
+            transform: scale(1.02);
+        }
+
+        .carousel-card-image {
+            width: 100%;
+            height: 380px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .carousel-card-title {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #000;
+            margin: 0;
+            text-align: left;
+        }
+
+        .carousel-card-link {
+            display: none;
+        }
+
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: 1px solid #ddd;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 22px;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+
+        .carousel-nav-btn:hover {
+            background: #fff;
+            border-color: #000;
+        }
+
+        .carousel-nav-btn.prev { left: 10px; }
+        .carousel-nav-btn.next { right: 10px; }
+
+        /* Two Banner Section */
+        .two-banner-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin: 0;
+        }
+
+        .banner-card {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .banner-card-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #e0e0e0 0%, #d0d0d0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .banner-card-overlay {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            text-align: left;
+            width: auto;
+        }
+
+        .banner-card-title {
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .banner-card-link {
+            display: inline-block;
+            color: #000;
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #000;
+            padding-bottom: 2px;
+        }
+
+        /* Gift Banner Large */
+        .gift-banner-large {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to right, #2c3e50 0%, #34495e 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            color: #fff;
+        }
+
+        .gift-banner-content {
+            text-align: left;
+            max-width: 600px;
+            padding: 60px;
+        }
+
+        .gift-banner-content h2 {
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .gift-banner-content p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .gift-buttons {
+            display: flex;
+            gap: 15px;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .btn-gift {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 400;
+            border: 1px solid #fff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gift:hover {
+            background: #fff;
+            color: #2c3e50;
+        }
+
+        /* Art of Gifting Section */
+        .art-gifting-section {
+            padding: 0;
+            background: #fff;
+            position: relative;
+        }
+
+        .art-gifting-content {
+            max-width: 100%;
+            margin: 0;
+            position: relative;
+        }
+
+        .art-gifting-image {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5rem;
+        }
+
+        .art-gifting-text {
+            position: absolute;
+            bottom: 60px;
+            left: 60px;
+            max-width: 600px;
+        }
+
+        .art-gifting-text h2 {
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #000;
+        }
+
+        .art-gifting-text p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        /* World Section with Side Scroll */
+        .world-section {
+            padding: 60px 0;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .world-section .section-title {
+            color: #fff;
+        }
+
+        .world-carousel-wrapper {
+            position: relative;
+            padding: 0 60px;
+            overflow: hidden;
+        }
+
+        .world-carousel-track {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.5s ease;
+        }
+
+        .world-card {
+            min-width: 450px;
+            flex-shrink: 0;
+            background: #000;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .world-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .world-card-image {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+        }
+
+        .world-card-text {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            text-align: left;
+        }
+
+        .world-card-text h3 {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            line-height: 1.5;
+            color: #fff;
+        }
+
+        .world-card-text a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #fff;
+            padding-bottom: 2px;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 30px 35px 20px;
+        }
+
+        .footer-logo {
+            text-align: center;
+            font-size: 24px;
+            letter-spacing: 4px;
+            margin-bottom: 60px;
+            font-weight: 300;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .footer-logo-ampersand {
+            font-size: 14px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 540px;
+            max-width: 1400px;
+            margin: 0 auto 80px;
+            align-items: start;
+        }
+
+        .footer-section h3 {
+            font-size: 14px;
+            letter-spacing: 0.1px;
+            margin-bottom: 3px;
+            font-weight: 100;
+            text-transform: uppercase;
+        }
+
+        .footer-section p {
+            font-size: 13px;
+            margin-bottom: 35px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .footer-input-group {
+            display: inline-flex;
+            align-items: center;
+            border-bottom: 1px solid #fff;
+            padding-bottom: 2px;
+            margin-bottom: 8px;
+        }
+
+        .footer-section input {
+            flex: none;
+            width: 320px;
+            padding: 6px 0;
+            background: transparent;
+            border: none;
+            color: #666;
+            font-size: 12px;
+        }
+
+        .footer-section input::placeholder {
+            color: #666;
+        }
+
+        .footer-section button {
+            background: transparent;
+            border: none;
+            color: #fff;
+            padding: 0;
+            cursor: pointer;
+            font-size: 13px;
+            letter-spacing: 0px;
+            white-space: nowrap;
+        }
+
+        .footer-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #fff;
+            font-weight: 300;
+        }
+
+        .footer-checkbox input[type="checkbox"] {
+            min-width: 12px;
+            max-width: 12px;
+            min-height: 12px;
+            max-height: 12px;
+            width: 12px;
+            height: 12px;
+            border: 1px solid #fff;
+            background: #000;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            flex-shrink: 0;
+        }
+
+        .footer-checkbox input[type="checkbox"]:checked {
+            background: #000;
+            border-color: #fff;
+            position: relative;
+        }
+
+        .footer-checkbox input[type="checkbox"]:checked::after {
+            content: '✓';
+            color: #fff;
+            font-size: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .footer-checkbox label {
+            line-height: 1.6;
+        }
+
+        .footer-checkbox a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .footer-main-links {
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            padding: 15px 0;
+            max-width: 1400px;
+            margin: 0 auto 30px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .footer-links-left {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 200;
+            display: flex;
+            align-items: center;
+            gap: 0px;
+        }
+
+        .footer-links a.with-plus::after {
+            content: ' +';
+            color: #aea9a9;
+            font-size: 18px;
+        }
+
+        .footer-links-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: 100px;
+        }
+
+        .footer-bottom {
+            text-align: left;
+            font-size: 8px;
+            color: #ffffff;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-video-text h1 {
+                font-size: 1.5rem;
+                letter-spacing: 4px;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+                letter-spacing: 3px;
+                padding-left: 20px;
+            }
+            
+            .two-banner-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .carousel-card {
+                min-width: 250px;
+            }
+            
+            .world-card {
+                min-width: 350px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .logo-default, .logo-hover {
+                height: 50px;
+            }
+            
+            .dg-logo-img {
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header-wrapper">
+        <div class="top-nav">
+            <div class="top-nav-left">
+                <a href="#">Fashion</a>
+                <a href="#" class="active">Beauty</a>
+                <a href="#">Food&Beverage</a>
+                <a href="#">World</a>
+                <a href="#">Alta Moda</a>
+                <a href="#">Sustainability</a>
+                <a href="#">MY DG</a>
+            </div>
+            <div class="top-nav-right">
+                <a href="#">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    Search
+                </a>
+                <a href="#">Wishlist</a>
+                <a href="#">Store Locator</a>
+                <a href="#">Login</a>
+                <a href="#">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="7" width="18" height="13" rx="2" ry="2"></rect>
+                        <path d="M8 7V5a4 4 0 0 1 8 0v2"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <header class="main-header">
+            <div class="logo">
+                <a href="https://www.dolcegabbana.com/en-vn/">
+                    <img src="images/logo-default.png" alt="Dolce&Gabbana" class="logo-default">
+                    <img src="images/logo-hover.png" alt="Dolce&Gabbana" class="logo-hover">
+                </a>
+            </div>
+
+            <a href="https://www.dolcegabbana.com/en-vn/" class="dg-logo-link">
+                <img src="images/logo-dg.png" alt="DG Logo" class="dg-logo-img">
+            </a>
+
+            <div class="sub-menu">
+                <a href="#">SKIN BEAUTIFIERS</a>
+                <a href="#">MAKEUP</a>
+                <a href="#">LUXURY COLLECTIONS</a>
+                <a href="#">PERFUMES FOR HER</a>
+                <a href="#">PERFUMES FOR HIM</a>
+                <a href="#">FEFÉ</a>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero Video Section -->
+    <section class="hero-video">
+        <!-- Video sẽ được thêm vào đây -->
+        <!-- <video autoplay muted loop>
+            <source src="your-video.mp4" type="video/mp4">
+        </video> -->
+    </section>
+
+    <!-- Holiday Makeup Text -->
+    <div class="hero-video-text">
+        <h1>HOLIDAY MAKEUP</h1>
+        <p>An intense, sophisticated red for lips and nails that won't go unnoticed. Discover the Holiday selection.</p>
+        <a href="#" class="btn-discover">Discover More</a>
+    </div>
+
+    <!-- Holiday Selection - Horizontal Carousel -->
+    <section class="holiday-selection-section">
+        <h2 class="section-title">HOLIDAY SELECTION</h2>
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="holidayCarousel">
+                <div class="carousel-card">
+                    <div class="carousel-card-image">🎁</div>
+                    <h3 class="carousel-card-title">FESTIVE HOLIDAY SELECTION</h3>
+                </div>
+                <div class="carousel-card">
+                    <div class="carousel-card-image">💄</div>
+                    <h3 class="carousel-card-title">DAZZLING RED HOLIDAY SET</h3>
+                </div>
+                <div class="carousel-card">
+                    <div class="carousel-card-image">✨</div>
+                    <h3 class="carousel-card-title">LUXURY GIFT COLLECTION</h3>
+                </div>
+                <div class="carousel-card">
+                    <div class="carousel-card-image">🌟</div>
+                    <h3 class="carousel-card-title">HOLIDAY MAKEUP KIT</h3>
+                </div>
+                <div class="carousel-card">
+                    <div class="carousel-card-image">💝</div>
+                    <h3 class="carousel-card-title">BEAUTY ESSENTIALS SET</h3>
+                </div>
+                <div class="carousel-card">
+                    <div class="carousel-card-image">🎀</div>
+                    <h3 class="carousel-card-title">LIPSTICK COLLECTION</h3>
+                </div>
+                <div class="carousel-card">
+                    <div class="carousel-card-image">💋</div>
+                    <h3 class="carousel-card-title">RED PASSION SET</h3>
+                </div>
+                <div class="carousel-card">
+                    <div class="carousel-card-image">🎄</div>
+                    <h3 class="carousel-card-title">CHRISTMAS SPECIAL</h3>
+                </div>
+                <div class="carousel-card">
+                    <div class="carousel-card-image">⭐</div>
+                    <h3 class="carousel-card-title">GOLDEN EDITION</h3>
+                </div>
+                <div class="carousel-card">
+                    <div class="carousel-card-image">💎</div>
+                    <h3 class="carousel-card-title">PREMIUM BEAUTY BOX</h3>
+                </div>
+                <div class="carousel-card">
+                    <div class="carousel-card-image">🌹</div>
+                    <h3 class="carousel-card-title">ROSE COLLECTION</h3>
+                </div>
+                <div class="carousel-card">
+                    <div class="carousel-card-image">🎊</div>
+                    <h3 class="carousel-card-title">PARTY MAKEUP SET</h3>
+                </div>
+                <div class="carousel-card">
+                    <div class="carousel-card-image">✨</div>
+                    <h3 class="carousel-card-title">SHIMMER & SHINE</h3>
+                </div>
+                <div class="carousel-card">
+                    <div class="carousel-card-image">🎁</div>
+                    <h3 class="carousel-card-title">GIFT OF BEAUTY</h3>
+                </div>
+            </div>
+            <button class="carousel-nav-btn prev" onclick="scrollHolidayCarousel(-1)">←</button>
+            <button class="carousel-nav-btn next" onclick="scrollHolidayCarousel(1)">→</button>
+        </div>
+    </section>
+
+    <!-- Two Banner Section -->
+    <section class="two-banner-section">
+        <div class="banner-card">
+            <div class="banner-card-image">🎁</div>
+            <div class="banner-card-overlay">
+                <h3 class="banner-card-title">FESTIVE HOLIDAY SELECTION</h3>
+                <a href="#" class="banner-card-link">Discover More</a>
+            </div>
+        </div>
+        <div class="banner-card">
+            <div class="banner-card-image">💄</div>
+            <div class="banner-card-overlay">
+                <h3 class="banner-card-title">DAZZLING RED HOLIDAY SET</h3>
+                <a href="#" class="banner-card-link">Discover More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift Banner Large -->
+    <section class="gift-banner-large">
+        <div class="gift-banner-content">
+            <h2>SPECIAL GIFT SETS</h2>
+            <p>A gift set that captures the fresh, aromatic notes of the Mediterranean. Discover Light Blue Pour Homme EDT Trio with the entire Holiday Gift Set selection.</p>
+            <div class="gift-buttons">
+                <a href="#" class="btn-gift">Special Gift Sets</a>
+                <a href="#" class="btn-gift">Gifts For Him</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Art of Gifting Section -->
+    <section class="art-gifting-section">
+        <div class="art-gifting-content">
+            <div class="art-gifting-image">🎀</div>
+            <div class="art-gifting-text">
+                <h2>THE ART OF GIFTING</h2>
+                <p>Celebrate the magic of the holidays with Dolce&Gabbana Beauty's exclusive packaging — refined gift sets, luminous ribbons, elegant shoppers, and greeting cards crafted to convey unforgettable emotions.</p>
+                <a href="#" class="btn-discover">Discover More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- World of Dolce&Gabbana Section -->
+    <section class="world-section">
+        <h2 class="section-title">WORLD OF DOLCE&GABBANA</h2>
+        <div class="world-carousel-wrapper">
+            <div class="world-carousel-track" id="worldCarousel">
+                <div class="world-card">
+                    <div class="world-card-image">🏝️</div>
+                    <div class="world-card-text">
+                        <h3>Dolce&Gabbana brings Capri to Roblox: Light Blue Island is born</h3>
+                        <a href="#">Discover More</a>
+                    </div>
+                </div>
+                <div class="world-card">
+                    <div class="world-card-image">☀️</div>
+                    <div class="world-card-text">
+                        <h3>Light Blue Summer Tour: the Dolce&Gabbana summer comes to town</h3>
+                        <a href="#">Discover More</a>
+                    </div>
+                </div>
+                <div class="world-card">
+                    <div class="world-card-image">🌊</div>
+                    <div class="world-card-text">
+                        <h3>The new summer by Dolce&Gabbana Light Blue</h3>
+                        <a href="#">Discover More</a>
+                    </div>
+                </div>
+                <div class="world-card">
+                    <div class="world-card-image">💎</div>
+                    <div class="world-card-text">
+                        <h3>Dolce&Gabbana Fresh Skin Collection - The ritual for radiant skin</h3>
+                        <a href="#">Discover More</a>
+                    </div>
+                </div>
+                <div class="world-card">
+                    <div class="world-card-image">🌹</div>
+                    <div class="world-card-text">
+                        <h3>Dolce&Gabbana Velvet Collection</h3>
+                        <a href="#">Discover More</a>
+                    </div>
+                </div>
+                <div class="world-card">
+                    <div class="world-card-image">❤️</div>
+                    <div class="world-card-text">
+                        <h3>K&Q, the story of an overwhelming passion</h3>
+                        <a href="#">Discover More</a>
+                    </div>
+                </div>
+                <div class="world-card">
+                    <div class="world-card-image">💕</div>
+                    <div class="world-card-text">
+                        <h3>Devotion for Men, the new fragrance by Dolce&Gabbana</h3>
+                        <a href="#">Discover More</a>
+                    </div>
+                </div>
+                <div class="world-card">
+                    <div class="world-card-image">👗</div>
+                    <div class="world-card-text">
+                        <h3>Women's Fall/Winter 2025 Fashion Show</h3>
+                        <a href="#">Discover More</a>
+                    </div>
+                </div>
+                <div class="world-card">
+                    <div class="world-card-image">✨</div>
+                    <div class="world-card-text">
+                        <h3>Multisensory Experience</h3>
+                        <a href="#">Try It Now</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-nav-btn prev" onclick="scrollWorldCarousel(-1)">←</button>
+            <button class="carousel-nav-btn next" onclick="scrollWorldCarousel(1)">→</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <span>DOLCE</span>
+            <span class="footer-logo-ampersand">&</span>
+            <span>GABBANA</span>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>STORE LOCATOR</h3>
+                <p>Enter a location to find the nearest DG Stores</p>
+                <div class="footer-input-group">
+                    <input type="text" placeholder="Search by city or postcode">
+                    <button>Search</button>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>SUBSCRIBE TO NEWSLETTER</h3>
+                <p>&nbsp;</p>
+                <div class="footer-input-group">
+                    <input type="email" placeholder="Insert your email">
+                    <button>Confirm</button>
+                </div>
+                <div class="footer-checkbox">
+                    <input type="checkbox" id="privacy">
+                    <label for="privacy">I declare that I have read the <a href="#">Privacy Policy</a>.*</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-main-links">
+            <div class="footer-links">
+                <div class="footer-links-left">
+                    <a href="#">SERVICES</a>
+                    <a href="#">ORDER TRACKING</a>
+                    <a href="#">RETURNS</a>
+                    <a href="#" class="with-plus">CUSTOMER CARE</a>
+                    <a href="#" class="with-plus">LEGAL AREA</a>
+                    <a href="#" class="with-plus">CORPORATE</a>
+                    <a href="#" class="with-plus">FOLLOW US</a>
+                </div>
+                <div class="footer-links-right">
+                    <span>COUNTRY & LANGUAGE</span>
+                    <span>Vietnam / English</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            Site – managed by The Level S.r.l – Copyright © Dolce & Gabbana S.r.l. 2025 – All rights reserved – any reproduction of the contents is strictly forbidden.
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const headerWrapper = document.querySelector('.header-wrapper');
+            if (window.scrollY > 50) {
+                headerWrapper.classList.add('scrolled');
+            } else {
+                headerWrapper.classList.remove('scrolled');
+            }
+        });
+
+        // Holiday Selection Carousel
+        let holidayScrollPosition = 0;
+        const holidayCarousel = document.getElementById('holidayCarousel');
+        const holidayCardWidth = 320; // 300px width + 20px gap
+
+        function scrollHolidayCarousel(direction) {
+            const maxScroll = -(holidayCarousel.scrollWidth - holidayCarousel.parentElement.clientWidth);
+            holidayScrollPosition += direction * holidayCardWidth * 2; // Scroll 2 cards at a time
+            
+            if (holidayScrollPosition > 0) holidayScrollPosition = 0;
+            if (holidayScrollPosition < maxScroll) holidayScrollPosition = maxScroll;
+            
+            holidayCarousel.style.transform = `translateX(${holidayScrollPosition}px)`;
+        }
+
+        // Auto-scroll Holiday Carousel (right to left)
+        setInterval(() => {
+            scrollHolidayCarousel(-1);
+            const maxScroll = -(holidayCarousel.scrollWidth - holidayCarousel.parentElement.clientWidth);
+            if (holidayScrollPosition <= maxScroll) {
+                holidayScrollPosition = 0;
+                holidayCarousel.style.transform = `translateX(0px)`;
+            }
+        }, 3000);
+
+        // World Carousel
+        let worldScrollPosition = 0;
+        const worldCarousel = document.getElementById('worldCarousel');
+        const worldCardWidth = 470; // 450px width + 20px gap
+
+        function scrollWorldCarousel(direction) {
+            const maxScroll = -(worldCarousel.scrollWidth - worldCarousel.parentElement.clientWidth);
+            worldScrollPosition += direction * worldCardWidth * 1.5; // Scroll 1.5 cards (show partial next card)
+            
+            if (worldScrollPosition > 0) worldScrollPosition = 0;
+            if (worldScrollPosition < maxScroll) worldScrollPosition = maxScroll;
+            
+            worldCarousel.style.transform = `translateX(${worldScrollPosition}px)`;
+        }
+
+        // Auto-scroll World Carousel
+        setInterval(() => {
+            scrollWorldCarousel(-1);
+            const maxScroll = -(worldCarousel.scrollWidth - worldCarousel.parentElement.clientWidth);
+            if (worldScrollPosition <= maxScroll) {
+                worldScrollPosition = 0;
+                worldCarousel.style.transform = `translateX(0px)`;
+            }
+        }, 4000);
+    </script>
+</body>
+</html>
