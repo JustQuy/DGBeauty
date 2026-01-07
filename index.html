@@ -397,69 +397,72 @@
             height: 100vh;
             background: linear-gradient(to right, #2c3e50 0%, #34495e 100%);
             display: flex;
-            align-items: flex-end;
-            justify-content: flex-start;
+            align-items: center;
+            justify-content: center;
             color: #fff;
         }
 
-        .gift-banner-content {
+        .gift-banner-text {
+            padding: 60px 5%;
+            background: #fff;
             text-align: left;
-            max-width: 600px;
-            padding: 60px;
         }
 
         .gift-banner-content h2 {
-            font-size: 1.3rem;
+            font-size: 2rem;
             font-weight: 300;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             margin-bottom: 20px;
             text-transform: uppercase;
+            color: #000;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .gift-banner-content p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             line-height: 1.7;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             font-weight: 300;
+            color: #555;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .gift-buttons {
             display: flex;
             gap: 15px;
-            flex-direction: column;
             align-items: flex-start;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .btn-gift {
             display: inline-block;
             padding: 12px 30px;
             background: transparent;
-            color: #fff;
+            color: #000;
             text-decoration: none;
             font-size: 0.75rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             font-weight: 400;
-            border: 1px solid #fff;
+            border: 1px solid #000;
             transition: all 0.3s ease;
         }
 
         .btn-gift:hover {
-            background: #fff;
-            color: #2c3e50;
+            background: #000;
+            color: #fff;
         }
 
         /* Art of Gifting Section */
         .art-gifting-section {
             padding: 0;
             background: #fff;
-            position: relative;
-        }
-
-        .art-gifting-content {
-            max-width: 100%;
-            margin: 0;
-            position: relative;
         }
 
         .art-gifting-image {
@@ -473,26 +476,31 @@
         }
 
         .art-gifting-text {
-            position: absolute;
-            bottom: 60px;
-            left: 60px;
-            max-width: 600px;
+            padding: 60px 5%;
+            background: #fff;
+            text-align: left;
         }
 
         .art-gifting-text h2 {
-            font-size: 1.3rem;
+            font-size: 2rem;
             font-weight: 300;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             margin-bottom: 20px;
             text-transform: uppercase;
             color: #000;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .art-gifting-text p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             line-height: 1.7;
-            margin-bottom: 30px;
-            color: #000;
+            margin-bottom: 25px;
+            color: #555;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* World Section with Side Scroll */
@@ -949,6 +957,11 @@
 
     <!-- Gift Banner Large -->
     <section class="gift-banner-large">
+        <!-- Hình nền lớn sẽ ở đây -->
+    </section>
+
+    <!-- Gift Banner Text -->
+    <div class="gift-banner-text">
         <div class="gift-banner-content">
             <h2>SPECIAL GIFT SETS</h2>
             <p>A gift set that captures the fresh, aromatic notes of the Mediterranean. Discover Light Blue Pour Homme EDT Trio with the entire Holiday Gift Set selection.</p>
@@ -957,17 +970,15 @@
                 <a href="#" class="btn-gift">Gifts For Him</a>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Art of Gifting Section -->
     <section class="art-gifting-section">
-        <div class="art-gifting-content">
-            <div class="art-gifting-image">🎀</div>
-            <div class="art-gifting-text">
-                <h2>THE ART OF GIFTING</h2>
-                <p>Celebrate the magic of the holidays with Dolce&Gabbana Beauty's exclusive packaging — refined gift sets, luminous ribbons, elegant shoppers, and greeting cards crafted to convey unforgettable emotions.</p>
-                <a href="#" class="btn-discover">Discover More</a>
-            </div>
+        <div class="art-gifting-image">🎀</div>
+        <div class="art-gifting-text">
+            <h2>THE ART OF GIFTING</h2>
+            <p>Celebrate the magic of the holidays with Dolce&Gabbana Beauty's exclusive packaging — refined gift sets, luminous ribbons, elegant shoppers, and greeting cards crafted to convey unforgettable emotions.</p>
+            <a href="#" class="btn-discover">Discover More</a>
         </div>
     </section>
 
