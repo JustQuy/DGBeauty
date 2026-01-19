@@ -377,7 +377,7 @@ setInterval(() => {
   }, 400);
 }, 3000);
 
-// Classic Look Carousel (CHỈ KHAI BÁO 1 LẦN)
+// Classic Look Carousel
 let classicSlide = 0;
 const totalClassicSlides = 7;
 
@@ -408,27 +408,28 @@ setInterval(() => {
   moveClassicCarousel(1);
 }, 4000);
 
-// World carousel 
-
+// World carousel animation (CHỈ 3 HÌNH)
 const worldCarousel = document.getElementById('worldCarousel');
 const worldCards = Array.from(worldCarousel.children);
 let worldCurrentIndex = 0;
+
 worldCarousel.style.transform = 'translateX(0)';
 
 setInterval(() => {
   worldCards[worldCurrentIndex % worldCards.length].style.opacity = '0';
+  
   worldCarousel.style.transition = 'transform 0.4s ease';
   worldCarousel.style.transform = `translateX(-${window.innerWidth * 0.5}px)`;
-
+  
   setTimeout(() => {
     worldCarousel.style.transition = 'none';
     worldCarousel.appendChild(worldCards[worldCurrentIndex % worldCards.length]);
     worldCarousel.style.transform = 'translateX(0)';
     worldCards[worldCurrentIndex % worldCards.length].style.opacity = '1';
+    
     worldCurrentIndex++;
   }, 400);
 }, 4000);
-
 </script>
 </body>
 </html>
