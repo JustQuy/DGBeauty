@@ -361,25 +361,57 @@ window.addEventListener('scroll', () => {
 document.querySelector('.header-wrapper').classList.toggle('scrolled', window.scrollY > 50);
 });
 
-const carousels = {
-holiday: { el: document.getElementById('holidayCarousel'), pos: 0, width: window.innerWidth * 0.2 + 20 }
-};
-
-function scrollCarousel(type, dir) {
-const c = carousels[type];
-const max = -(c.el.scrollWidth - c.el.parentElement.clientWidth);
-c.pos += dir * c.width * 2;
-c.pos = Math.max(max, Math.min(0, c.pos));
-c.el.style.transform = `translateX(${c.pos}px)`;
-}
+// Fragrance Selection carousel animation
+const holidayCarousel = document.getElementById('holidayCarousel');
+const holidayCards = Array.from(holidayCarousel.children);
+let holidayCurrentIndex = 0;
+holidayCarousel.style.transform = 'translateX(0)';
 
 setInterval(() => {
-scrollCarousel('holiday', -1);
-if (carousels.holiday.pos <= -(carousels.holiday.el.scrollWidth - carousels.holiday.el.parentElement.clientWidth)) {
-carousels.holiday.pos = 0;
-carousels.holiday.el.style.transform = 'translateX(0)';
-}
+holidayCards[holidayCurrentIndex % holidayCards.length].style.opacity = '0';
+holidayCarousel.style.transition = 'transform 0.4s ease';
+const cardWidth = holidayCards[0].offsetWidth + 20; // width + gap
+holidayCarousel.style.transform = `translateX(-${cardWidth}px)`;
+
+setTimeout(() => {
+holidayCarousel.style.transition = 'none';
+holidayCarousel.appendChild(holidayCards[holidayCurrentIndex % holidayCards.length]);
+holidayCarousel.style.transform = 'translateX(0)';
+holidayCards[holidayCurrentIndex % holidayCards.length].style.opacity = '1';
+holidayCurrentIndex++;
+}, 400);
 }, 3000);
+
+// Classic Look Carousel
+let classicSlide = 0;
+const totalClassicSlides = 7;
+
+function moveClassicCarousel(direction) {
+classicSlide += direction;
+if (classicSlide < 0) classicSlide = totalClassicSlides - 1;
+if (classicSlide >= totalClassicSlides) classicSlide = 0;
+updateClassicCarousel();
+}
+
+function updateClassicCarousel() {
+const inner = document.getElementById('classicCarouselInner');
+inner.style.transform = `translateX(-${classicSlide * 100}%)`;
+
+// Update counter
+const start = classicSlide + 1;
+document.getElementById('classicSlideStart').textContent = String(start).padStart(2, '0');
+document.getElementById('classicSlideEnd').textContent = '07';
+
+// Update progress bar
+const progressBar = document.getElementById('classicProgressBar');
+const position = (classicSlide / (totalClassicSlides - 1)) * 85.72;
+progressBar.style.left = position + '%';
+}
+
+// Auto-play Classic carousel
+setInterval(() => {
+moveClassicCarousel(1);
+}, 4000);
 
 // Classic Look Carousel
 let classicSlide = 0;
