@@ -68,17 +68,12 @@ body { font-family: "Futura", -apple-system, BlinkMacSystemFont, "Segoe UI", Ari
 .holiday-selection-section { padding: 80px 0; background: #fff; overflow: hidden; }
 
 /* Carousel */
-.carousel-wrapper { position: relative; width: 100%; overflow: hidden; padding: 0 60px; }
+.carousel-wrapper { position: relative; width: 100%; overflow: hidden; padding: 0 0 0 60px; }
 .carousel-track { display: flex; gap: 20px; transition: transform 0.5s ease; }
-.carousel-card { min-width: 20vw; flex-shrink: 0; cursor: pointer; transition: transform 0.3s ease; position: relative; }
+.carousel-card { width: calc((100vw - 60px - 60px) / 4); min-width: calc((100vw - 60px - 60px) / 4); max-width: calc((100vw - 60px - 60px) / 4); flex-shrink: 0; cursor: pointer; transition: transform 0.3s ease; position: relative; }
 .carousel-card:hover { transform: scale(1.02); }
 .carousel-card-image { width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; overflow: hidden; }
-.carousel-card-image img { width: 100%; height: 100%; object-fit: cover; }
-.carousel-card-title { position: absolute; bottom: 20px; left: 20px; font-size: 0.7rem; font-weight: 400; letter-spacing: 1.2px; text-transform: uppercase; color: #000; background: rgba(255,255,255,0.9); padding: 8px 12px; }
-.carousel-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: 1px solid #ddd; width: 50px; height: 50px; cursor: pointer; font-size: 22px; z-index: 10; transition: all 0.3s; }
-.carousel-nav-btn:hover { background: #fff; border-color: #000; }
-.carousel-nav-btn.prev { left: 10px; }
-.carousel-nav-btn.next { right: 10px; }
+.carousel-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* Two Banner */
 .two-banner-section { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
