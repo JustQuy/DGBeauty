@@ -51,6 +51,9 @@ body { font-family: "Futura", -apple-system, BlinkMacSystemFont, "Segoe UI", Ari
 .header-wrapper:hover .sub-menu a, .header-wrapper.scrolled .sub-menu a { color: #000; }
 .header-wrapper:hover .sub-menu a::after, .header-wrapper.scrolled .sub-menu a::after { background: #000; }
 
+/* Mobile Menu Toggle */
+.mobile-menu-toggle { display: none; background: none; border: none; color: inherit; font-size: 24px; cursor: pointer; }
+
 /* Shared Styles */
 .full-height { width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; }
 .text-section h1, .text-section h2 { font-size: 1.8rem; font-weight: 370; letter-spacing: 8px; margin-bottom: 20px; text-transform: uppercase; color: #000; }
@@ -74,6 +77,7 @@ body { font-family: "Futura", -apple-system, BlinkMacSystemFont, "Segoe UI", Ari
 .carousel-card:hover { transform: scale(1.02); }
 .carousel-card-image { width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; overflow: hidden; }
 .carousel-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.carousel-card-title { text-align: center; font-size: 0.65rem; font-weight: 300; letter-spacing: 1px; margin-top: 15px; text-transform: uppercase; }
 
 /* Two Banner */
 .two-banner-section { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
@@ -83,10 +87,6 @@ body { font-family: "Futura", -apple-system, BlinkMacSystemFont, "Segoe UI", Ari
 .banner-card-overlay { position: absolute; bottom: 30px; left: 30px; text-align: left; }
 .banner-card-title { font-size: 0.8rem; font-weight: 400; letter-spacing: 1.8px; text-transform: uppercase; margin-bottom: 12px; color: #000; background: rgba(255,255,255,0.9); padding: 8px 12px; display: inline-block; }
 .banner-card-link { display: inline-block; color: #000; text-decoration: none; font-size: 0.7rem; letter-spacing: 1.2px; text-transform: uppercase; border-bottom: 1px solid #000; padding-bottom: 2px; background: rgba(255,255,255,0.9); padding: 8px 12px; }
-
-/* Gift Banner */
-.gift-banner-large { position: relative; width: 100%; height: 100vh; background: linear-gradient(to right, #2c3e50 0%, #34495e 100%); min-height: 500px; max-height: 1080px; }
-.gift-buttons { display: flex; gap: 15px; }
 
 /* World Section */
 .world-section { padding: 60px 0; background: #000; overflow: hidden; }
@@ -99,7 +99,6 @@ body { font-family: "Futura", -apple-system, BlinkMacSystemFont, "Segoe UI", Ari
 .world-card-text h3 { font-size: 0.75rem; font-weight: 300; letter-spacing: 1.2px; margin-bottom: 12px; text-transform: uppercase; line-height: 1.6; color: #fff; }
 .world-card-text a { display: inline-block; margin: 0; padding: 0 0 6px 0; color: #fff; text-decoration: none; font-size: 0.65rem; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 400; background: none; border: none; border-bottom: 1px solid #fff; transition: background 0.3s ease, color 0.3s ease; }
 .world-card-text a:hover { background: #fff; color: #000; }
-.world-section .carousel-nav-btn { display: none; }
 
 /* Footer */
 footer { background: #000; color: #fff; padding: 30px 0 20px; }
@@ -127,15 +126,297 @@ footer { background: #000; color: #fff; padding: 30px 0 20px; }
 .footer-links-right { display: flex; gap: 15px; font-weight: 300; }
 .footer-bottom { text-align: left; font-size: 7.5px; color: #fff; max-width: 100%; margin: 0; padding: 0 60px; letter-spacing: 0.2px; font-weight: 300; }
 
+/* ============================================ */
+/* RESPONSIVE DESIGN - MOBILE & TABLET */
+/* ============================================ */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  .carousel-card { 
+    width: calc((100vw - 40px - 40px) / 3); 
+    min-width: calc((100vw - 40px - 40px) / 3); 
+    max-width: calc((100vw - 40px - 40px) / 3); 
+  }
+  
+  .world-card { 
+    width: 60vw; 
+    min-width: 60vw; 
+    max-width: 60vw; 
+  }
+  
+  .section-title { padding-left: 40px; }
+  .carousel-wrapper { padding: 0 0 0 40px; }
+}
+
+/* Mobile (max 768px) */
 @media (max-width: 768px) {
-.text-section h1, .text-section h2 { font-size: 1.5rem; letter-spacing: 4px; }
-.section-title { font-size: 1.2rem; letter-spacing: 3px; padding-left: 20px; }
-.two-banner-section { grid-template-columns: 1fr; }
-.carousel-card { min-width: 250px; }
-.world-card { min-width: 350px; }
-.footer-content { grid-template-columns: 1fr; gap: 40px; }
-.logo-default, .logo-hover { height: 50px; }
-.dg-logo-img { height: 30px; }
+  /* Header Mobile */
+  .top-nav { 
+    padding: 15px 20px; 
+    font-size: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .header-wrapper.scrolled .top-nav { padding: 10px 20px; }
+  
+  .top-nav-left { 
+    order: 2;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .top-nav-left a span { 
+    font-size: 9px;
+    white-space: nowrap;
+  }
+  
+  .top-nav-right { 
+    gap: 12px;
+  }
+  
+  .top-nav a { gap: 5px; }
+  .top-nav a svg { width: 16px; height: 16px; }
+  
+  /* Hide some nav items on mobile */
+  .top-nav-left a:nth-child(n+5) { display: none; }
+  .top-nav-right a:nth-child(3) { display: none; } /* Hide Store Locator */
+  
+  /* Logo Mobile */
+  .logo-default, .logo-hover { height: 50px; }
+  .dg-logo-img { height: 30px; }
+  
+  /* Sub Menu Mobile */
+  .sub-menu { 
+    gap: 15px; 
+    font-size: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    padding: 0 20px;
+  }
+  
+  .sub-menu a { white-space: nowrap; }
+  
+  /* Hero Mobile */
+  .hero-video { 
+    height: 60vh; 
+    min-height: 400px;
+  }
+  
+  /* Text Section Mobile */
+  .text-section h1, .text-section h2 { 
+    font-size: 1.2rem !important; 
+    letter-spacing: 3px !important; 
+  }
+  
+  .text-section p { 
+    font-size: 0.85rem !important; 
+    line-height: 1.6 !important;
+  }
+  
+  .text-section { padding: 40px 20px !important; }
+  
+  /* Section Titles Mobile */
+  .section-title { 
+    font-size: 1rem; 
+    letter-spacing: 3px; 
+    padding-left: 20px; 
+    margin-bottom: 25px;
+  }
+  
+  /* Carousel Mobile */
+  .holiday-selection-section { padding: 50px 0; }
+  
+  .carousel-wrapper { padding: 0 0 0 20px; }
+  
+  .carousel-card { 
+    width: 70vw; 
+    min-width: 70vw; 
+    max-width: 70vw; 
+  }
+  
+  .carousel-card-title { 
+    font-size: 0.6rem;
+    margin-top: 10px;
+  }
+  
+  /* Fresh Skin Banner Mobile */
+  section[style*="height: 80vh"] {
+    height: 60vh !important;
+    min-height: 400px !important;
+  }
+  
+  section[style*="height: 80vh"] > div:last-child {
+    bottom: 30px !important;
+    left: 20px !important;
+    right: 20px !important;
+    max-width: none !important;
+  }
+  
+  section[style*="height: 80vh"] h2 {
+    font-size: 1.1rem !important;
+    letter-spacing: 4px !important;
+  }
+  
+  section[style*="height: 80vh"] p {
+    font-size: 0.75rem !important;
+  }
+  
+  /* Classic Look Split Section Mobile */
+  section[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+  
+  section[style*="grid-template-columns: 1fr 1fr"] > div:nth-child(2) {
+    padding: 40px 20px !important;
+  }
+  
+  section[style*="grid-template-columns: 1fr 1fr"] h2 {
+    font-size: 1rem !important;
+    letter-spacing: 3px !important;
+  }
+  
+  /* Two Banner Mobile */
+  .two-banner-section { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .banner-card { min-height: 300px; }
+  
+  .banner-card-overlay { 
+    bottom: 20px; 
+    left: 20px; 
+  }
+  
+  .banner-card-title { 
+    font-size: 0.7rem; 
+    letter-spacing: 1.2px;
+  }
+  
+  .banner-card-link { font-size: 0.65rem; }
+  
+  /* World Section Mobile */
+  .world-section { padding: 50px 0; }
+  
+  .world-section .section-title { padding-left: 20px; }
+  .world-section .carousel-wrapper { padding: 0 0 0 20px; }
+  
+  .world-card { 
+    width: 85vw; 
+    min-width: 85vw; 
+    max-width: 85vw; 
+  }
+  
+  .world-card-text { padding: 15px 0 20px; }
+  
+  .world-card-text h3 { 
+    font-size: 0.7rem; 
+    margin-bottom: 10px;
+  }
+  
+  .world-card-text a { font-size: 0.6rem; }
+  
+  /* Footer Mobile */
+  footer { padding: 30px 0 15px; }
+  
+  .footer-logo { 
+    margin-bottom: 40px; 
+    padding-top: 40px; 
+  }
+  
+  .footer-logo img { height: 30px; }
+  
+  .footer-content { 
+    flex-direction: column; 
+    padding: 0 20px; 
+    margin-bottom: 40px;
+    gap: 30px;
+  }
+  
+  .footer-section:first-child { margin-right: 0; }
+  .footer-section:last-child { margin-left: 0; }
+  
+  .footer-section h3 { font-size: 11px; }
+  .footer-section p { font-size: 10px; margin-bottom: 20px; }
+  
+  .footer-section input { 
+    width: 200px; 
+    font-size: 10px; 
+  }
+  
+  .footer-section button { font-size: 10px; }
+  
+  .footer-checkbox { 
+    font-size: 10px; 
+    gap: 8px;
+  }
+  
+  .footer-main-links { 
+    padding: 15px 20px; 
+    margin-bottom: 20px;
+  }
+  
+  .footer-links { 
+    flex-direction: column; 
+    gap: 15px;
+    font-size: 10px;
+  }
+  
+  .footer-links-left { 
+    flex-direction: column; 
+    gap: 12px;
+    width: 100%;
+  }
+  
+  .footer-links-right { 
+    flex-direction: column; 
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .footer-bottom { 
+    font-size: 7px; 
+    padding: 0 20px;
+    line-height: 1.4;
+  }
+  
+  /* Buttons Mobile */
+  .btn-discover, .btn-gift { 
+    padding: 10px 25px; 
+    font-size: 0.65rem; 
+  }
+}
+
+/* Extra Small Mobile (max 480px) */
+@media (max-width: 480px) {
+  .carousel-card { 
+    width: 80vw; 
+    min-width: 80vw; 
+    max-width: 80vw; 
+  }
+  
+  .world-card { 
+    width: 90vw; 
+    min-width: 90vw; 
+    max-width: 90vw; 
+  }
+  
+  .text-section h1, .text-section h2 { 
+    font-size: 1rem !important; 
+    letter-spacing: 2px !important;
+  }
+  
+  .section-title { 
+    font-size: 0.9rem; 
+    letter-spacing: 2px;
+  }
+  
+  .footer-section input { width: 180px; }
 }
 </style>
 </head>
@@ -182,13 +463,10 @@ footer { background: #000; color: #fff; padding: 30px 0 20px; }
 </div>
 
 <section class="hero-video">
-<!-- Dùng VIDEO - Bỏ comment dòng dưới và comment dòng img -->
 <video autoplay muted loop playsinline style="display: block;">
 <source src="images/hero-video.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<!-- Dùng ẢNH - Comment dòng video ở trên và bỏ comment dòng dưới -->
-<!-- <img src="images/hero-banner.jpg" alt="Dolce&Gabbana Beauty Hero" style="display: block;"> -->
 </section>
 
 <div class="text-section" style="padding: 80px 60px;">
@@ -208,17 +486,10 @@ Your browser does not support the video tag.
 <div class="carousel-card"><div class="carousel-card-image"><img src="images/fragrance-4.jpg" alt="Light Blue"></div><h3 class="carousel-card-title">LIGHT BLUE EAU DE TOILETTE</h3></div>
 <div class="carousel-card"><div class="carousel-card-image"><img src="images/fragrance-5.jpg" alt="K"></div><h3 class="carousel-card-title">K BY DOLCE&GABBANA</h3></div>
 <div class="carousel-card"><div class="carousel-card-image"><img src="images/fragrance-6.jpg" alt="Velvet"></div><h3 class="carousel-card-title">VELVET COLLECTION</h3></div>
-<div class="carousel-card"><div class="carousel-card-image"><img src="images/fragrance-7.jpg" alt="Dolce Garden"></div><h3 class="carousel-card-title">DOLCE GARDEN</h3></div>
-<div class="carousel-card"><div class="carousel-card-image"><img src="images/fragrance-8.jpg" alt="L'Imperatrice"></div><h3 class="carousel-card-title">L'IMPERATRICE</h3></div>
-<div class="carousel-card"><div class="carousel-card-image"><img src="images/fragrance-9.jpg" alt="The One Men"></div><h3 class="carousel-card-title">THE ONE FOR MEN</h3></div>
-<div class="carousel-card"><div class="carousel-card-image"><img src="images/fragrance-10.jpg" alt="Light Blue Men"></div><h3 class="carousel-card-title">LIGHT BLUE POUR HOMME</h3></div>
 </div>
-<button class="carousel-nav-btn prev" onclick="scrollCarousel('holiday', -1)">←</button>
-<button class="carousel-nav-btn next" onclick="scrollCarousel('holiday', 1)">→</button>
 </div>
 </section>
 
-<!-- Fresh Skin Collection Full Banner -->
 <section style="position: relative; width: 100%; height: 80vh; min-height: 600px; overflow: hidden;">
 <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f8f5f0 0%, #e8dfd5 100%); display: flex; align-items: center; justify-content: center; overflow: hidden;">
 <img src="images/fresh-skin-banner.jpg" alt="Fresh Skin Collection" style="width: 100%; height: 100%; object-fit: cover;">
@@ -230,62 +501,42 @@ Your browser does not support the video tag.
 </div>
 </section>
 
-<!-- Classic Look Split Section -->
 <section style="display: grid; grid-template-columns: 1fr 1fr; min-height: 700px;">
-<!-- Left: Model Image -->
 <div style="position: relative; background: #f5f5f5; overflow: hidden;">
 <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%); display: flex; align-items: center; justify-content: center; overflow: hidden;">
 <img src="images/classic-look-model.jpg" alt="Classic Look" style="width: 100%; height: 100%; object-fit: cover;">
 </div>
 </div>
 
-<!-- Right: Product Carousel -->
 <div style="background: #fff; padding: 60px; display: flex; flex-direction: column; justify-content: space-between; position: relative;">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px;">
 <h2 style="font-size: 1.3rem; font-weight: 300; letter-spacing: 6px; margin: 0; text-transform: uppercase;">CLASSIC LOOK</h2>
 <a href="#" style="display: inline-block; color: #000; text-decoration: none; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; border-bottom: 1px solid #000; padding-bottom: 3px;">SHOP NOW</a>
 </div>
 
-<!-- Carousel Container -->
 <div style="flex: 1; position: relative; display: flex; flex-direction: column;">
 <div style="position: relative; width: 100%; height: 100%; overflow: hidden;">
 <div id="classicCarouselInner" style="display: flex; transition: transform 0.5s ease; height: 100%;">
 <div style="min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden;">
 <img src="images/product-1.jpg" alt="My Sculpt Satin" style="max-width: 80%; max-height: 80%; object-fit: contain;">
 </div>
-<div style="min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;  overflow: hidden;">
+<div style="min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden;">
 <img src="images/product-2.jpg" alt="Luminous Powder" style="max-width: 80%; max-height: 80%; object-fit: contain;">
 </div>
 <div style="min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden;">
 <img src="images/product-3.jpg" alt="Perfect Eyes" style="max-width: 80%; max-height: 80%; object-fit: contain;">
 </div>
-<div style="min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;  overflow: hidden;">
-<img src="images/product-4.jpg" alt="Classic Lip Liner" style="max-width: 80%; max-height: 80%; object-fit: contain;">
 </div>
-<div style="min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;  overflow: hidden;">
-<img src="images/product-5.jpg" alt="Illuminating Serum" style="max-width: 80%; max-height: 80%; object-fit: contain;">
-</div>
-<div style="min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-<img src="images/product-6.jpg" alt="Blush Palette" style="max-width: 80%; max-height: 80%; object-fit: contain;">
-</div>
-<div style="min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-<img src="images/product-7.jpg" alt="Mascara Intense" style="max-width: 80%; max-height: 80%; object-fit: contain;">
 </div>
 
-<!-- Counter -->
 <div style="display: flex; align-items: center; gap: 15px; font-size: 0.7rem; letter-spacing: 2px; margin-top: 30px; justify-content: center;">
 <span id="classicSlideStart">01</span>
 <div style="width: 80px; height: 1px; background: rgba(0,0,0,0.2); position: relative;">
-<div id="classicProgressBar" style="width: 14.28%; height: 1px; background: #000; position: absolute; left: 0; transition: left 0.5s ease;"></div>
+<div id="classicProgressBar" style="width: 33.33%; height: 1px; background: #000; position: absolute; left: 0; transition: left 0.5s ease;"></div>
 </div>
-<span id="classicSlideEnd">07</span>
+<span id="classicSlideEnd">03</span>
 </div>
 </div>
-</div>
-</section>
-
-<section class="art-gifting-section">
-<div class="art-gifting-image" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);">
 </div>
 </section>
 
@@ -347,12 +598,10 @@ Your browser does not support the video tag.
 </footer>
 
 <script>
-// Header scroll effect
 window.addEventListener('scroll', () => {
   document.querySelector('.header-wrapper').classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// Fragrance Selection carousel animation
 const holidayCarousel = document.getElementById('holidayCarousel');
 const holidayCards = Array.from(holidayCarousel.children);
 let holidayCurrentIndex = 0;
@@ -361,7 +610,7 @@ holidayCarousel.style.transform = 'translateX(0)';
 setInterval(() => {
   holidayCards[holidayCurrentIndex % holidayCards.length].style.opacity = '0';
   holidayCarousel.style.transition = 'transform 0.4s ease';
-  const cardWidth = holidayCards[0].offsetWidth + 20; // width + gap
+  const cardWidth = holidayCards[0].offsetWidth + 20;
   holidayCarousel.style.transform = `translateX(-${cardWidth}px)`;
 
   setTimeout(() => {
@@ -373,9 +622,8 @@ setInterval(() => {
   }, 400);
 }, 3000);
 
-// Classic Look Carousel
 let classicSlide = 0;
-const totalClassicSlides = 7;
+const totalClassicSlides = 3;
 
 function moveClassicCarousel(direction) {
   classicSlide += direction;
@@ -388,23 +636,19 @@ function updateClassicCarousel() {
   const inner = document.getElementById('classicCarouselInner');
   inner.style.transform = `translateX(-${classicSlide * 100}%)`;
 
-  // Update counter
   const start = classicSlide + 1;
   document.getElementById('classicSlideStart').textContent = String(start).padStart(2, '0');
-  document.getElementById('classicSlideEnd').textContent = '07';
+  document.getElementById('classicSlideEnd').textContent = '03';
 
-  // Update progress bar
   const progressBar = document.getElementById('classicProgressBar');
-  const position = (classicSlide / (totalClassicSlides - 1)) * 85.72;
+  const position = (classicSlide / (totalClassicSlides - 1)) * 66.67;
   progressBar.style.left = position + '%';
 }
 
-// Auto-play Classic carousel
 setInterval(() => {
   moveClassicCarousel(1);
 }, 4000);
 
-// World carousel animation (CHỈ 3 HÌNH)
 const worldCarousel = document.getElementById('worldCarousel');
 const worldCards = Array.from(worldCarousel.children);
 let worldCurrentIndex = 0;
