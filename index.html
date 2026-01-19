@@ -351,8 +351,9 @@ Your browser does not support the video tag.
 </footer>
 
 <script>
+// Header scroll effect
 window.addEventListener('scroll', () => {
-document.querySelector('.header-wrapper').classList.toggle('scrolled', window.scrollY > 50);
+  document.querySelector('.header-wrapper').classList.toggle('scrolled', window.scrollY > 50);
 });
 
 // Fragrance Selection carousel animation
@@ -362,101 +363,72 @@ let holidayCurrentIndex = 0;
 holidayCarousel.style.transform = 'translateX(0)';
 
 setInterval(() => {
-holidayCards[holidayCurrentIndex % holidayCards.length].style.opacity = '0';
-holidayCarousel.style.transition = 'transform 0.4s ease';
-const cardWidth = holidayCards[0].offsetWidth + 20; // width + gap
-holidayCarousel.style.transform = `translateX(-${cardWidth}px)`;
+  holidayCards[holidayCurrentIndex % holidayCards.length].style.opacity = '0';
+  holidayCarousel.style.transition = 'transform 0.4s ease';
+  const cardWidth = holidayCards[0].offsetWidth + 20; // width + gap
+  holidayCarousel.style.transform = `translateX(-${cardWidth}px)`;
 
-setTimeout(() => {
-holidayCarousel.style.transition = 'none';
-holidayCarousel.appendChild(holidayCards[holidayCurrentIndex % holidayCards.length]);
-holidayCarousel.style.transform = 'translateX(0)';
-holidayCards[holidayCurrentIndex % holidayCards.length].style.opacity = '1';
-holidayCurrentIndex++;
-}, 400);
+  setTimeout(() => {
+    holidayCarousel.style.transition = 'none';
+    holidayCarousel.appendChild(holidayCards[holidayCurrentIndex % holidayCards.length]);
+    holidayCarousel.style.transform = 'translateX(0)';
+    holidayCards[holidayCurrentIndex % holidayCards.length].style.opacity = '1';
+    holidayCurrentIndex++;
+  }, 400);
 }, 3000);
 
-// Classic Look Carousel
+// Classic Look Carousel (CHỈ KHAI BÁO 1 LẦN)
 let classicSlide = 0;
 const totalClassicSlides = 7;
 
 function moveClassicCarousel(direction) {
-classicSlide += direction;
-if (classicSlide < 0) classicSlide = totalClassicSlides - 1;
-if (classicSlide >= totalClassicSlides) classicSlide = 0;
-updateClassicCarousel();
+  classicSlide += direction;
+  if (classicSlide < 0) classicSlide = totalClassicSlides - 1;
+  if (classicSlide >= totalClassicSlides) classicSlide = 0;
+  updateClassicCarousel();
 }
 
 function updateClassicCarousel() {
-const inner = document.getElementById('classicCarouselInner');
-inner.style.transform = `translateX(-${classicSlide * 100}%)`;
+  const inner = document.getElementById('classicCarouselInner');
+  inner.style.transform = `translateX(-${classicSlide * 100}%)`;
 
-// Update counter
-const start = classicSlide + 1;
-document.getElementById('classicSlideStart').textContent = String(start).padStart(2, '0');
-document.getElementById('classicSlideEnd').textContent = '07';
+  // Update counter
+  const start = classicSlide + 1;
+  document.getElementById('classicSlideStart').textContent = String(start).padStart(2, '0');
+  document.getElementById('classicSlideEnd').textContent = '07';
 
-// Update progress bar
-const progressBar = document.getElementById('classicProgressBar');
-const position = (classicSlide / (totalClassicSlides - 1)) * 85.72;
-progressBar.style.left = position + '%';
+  // Update progress bar
+  const progressBar = document.getElementById('classicProgressBar');
+  const position = (classicSlide / (totalClassicSlides - 1)) * 85.72;
+  progressBar.style.left = position + '%';
 }
 
 // Auto-play Classic carousel
 setInterval(() => {
-moveClassicCarousel(1);
+  moveClassicCarousel(1);
 }, 4000);
 
-// Classic Look Carousel
-let classicSlide = 0;
-const totalClassicSlides = 7;
+// World carousel 
 
-function moveClassicCarousel(direction) {
-classicSlide += direction;
-if (classicSlide < 0) classicSlide = totalClassicSlides - 1;
-if (classicSlide >= totalClassicSlides) classicSlide = 0;
-updateClassicCarousel();
-}
-
-function updateClassicCarousel() {
-const inner = document.getElementById('classicCarouselInner');
-inner.style.transform = `translateX(-${classicSlide * 100}%)`;
-
-// Update counter
-const start = classicSlide + 1;
-document.getElementById('classicSlideStart').textContent = String(start).padStart(2, '0');
-document.getElementById('classicSlideEnd').textContent = '07';
-
-// Update progress bar
-const progressBar = document.getElementById('classicProgressBar');
-const position = (classicSlide / (totalClassicSlides - 1)) * 85.72;
-progressBar.style.left = position + '%';
-}
-
-// Auto-play Classic carousel
-setInterval(() => {
-moveClassicCarousel(1);
-}, 4000);
-
-// World carousel animation
 const worldCarousel = document.getElementById('worldCarousel');
 const worldCards = Array.from(worldCarousel.children);
 let worldCurrentIndex = 0;
 worldCarousel.style.transform = 'translateX(0)';
 
 setInterval(() => {
-worldCards[worldCurrentIndex % worldCards.length].style.opacity = '0';
-worldCarousel.style.transition = 'transform 0.4s ease';
-worldCarousel.style.transform = `translateX(-${window.innerWidth * 0.5}px)`;
+  worldCards[worldCurrentIndex % worldCards.length].style.opacity = '0';
+  worldCarousel.style.transition = 'transform 0.4s ease';
+  worldCarousel.style.transform = `translateX(-${window.innerWidth * 0.5}px)`;
 
-setTimeout(() => {
-worldCarousel.style.transition = 'none';
-worldCarousel.appendChild(worldCards[worldCurrentIndex % worldCards.length]);
-worldCarousel.style.transform = 'translateX(0)';
-worldCards[worldCurrentIndex % worldCards.length].style.opacity = '1';
-worldCurrentIndex++;
-}, 400);
+  setTimeout(() => {
+    worldCarousel.style.transition = 'none';
+    worldCarousel.appendChild(worldCards[worldCurrentIndex % worldCards.length]);
+    worldCarousel.style.transform = 'translateX(0)';
+    worldCards[worldCurrentIndex % worldCards.length].style.opacity = '1';
+    worldCurrentIndex++;
+  }, 400);
 }, 4000);
+
 </script>
 </body>
 </html>
